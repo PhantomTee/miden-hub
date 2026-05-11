@@ -1,14 +1,12 @@
 import { verifyAdmin } from "@/lib/dal"
 import { db } from "@/lib/db"
-import type { Prisma } from "@prisma/client"
+import type { Quest } from "@prisma/client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Plus, Users, Zap, Trophy, Upload } from "lucide-react"
 
-type RecentQuest = Prisma.QuestGetPayload<{
-  include: { _count: { select: { completions: true } } }
-}>
+type RecentQuest = Quest & { _count: { completions: number } }
 
 export default async function AdminPage() {
   await verifyAdmin()
