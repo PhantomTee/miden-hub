@@ -1,9 +1,14 @@
 import { verifyAdmin } from "@/lib/dal"
 import { db } from "@/lib/db"
+import type { Prisma } from "@prisma/client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Plus, Users, Zap, Trophy, Upload } from "lucide-react"
+
+type RecentQuest = Prisma.QuestGetPayload<{
+  include: { _count: { select: { completions: true } } }
+}>
 
 export default async function AdminPage() {
   await verifyAdmin()
@@ -15,7 +20,7 @@ export default async function AdminPage() {
     db.submission.count({ where: { status: "PENDING" } }),
   ])
 
-  const recentQuests = await db.quest.findMany({
+  const recentQuests: RecentQuest[] = await db.quest.findMany({
     orderBy: { createdAt: "desc" },
     take: 5,
     include: { _count: { select: { completions: true } } },
