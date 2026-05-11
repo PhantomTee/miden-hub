@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id             String          @id @default(cuid())
+  walletAddress  String          @unique
+  username       String?
+  bio            String?
+  website        String?
+  avatarUrl      String?
+  totalPoints    Int             @default(0)
+  isAdmin        Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  completions    Completion[]
+  linkedAccounts LinkedAccount[]
+  submissions    Submission[]
+  likes          Like[]
+}
+
+model Quest {
+  id                 String           @id @default(cuid())
+  title              String
+  description        String
+  category           QuestCategory
+  points             Int
+  verificationType   VerificationType
+  verificationParams Json
+  isActive           Boolean          @default(true)
+  maxCompletions     Int?
+  createdAt          DateTime         @default(now())
+  completions        Completion[]
+}
+
+model Completion {
+  id            String           @id @default(cuid())
+  userId        String
+  questId       String
+  status        CompletionStatus @default(PENDING)
+  pointsAwarded Int              @default(0)
+  completedAt   DateTime         @default(now())
+  user          User             @relation(fields: [userId], references: [id])
+  quest         Quest            @relation(fields: [questId], references: [id])
+
+  @@unique([userId, questId])
+}
+
+model Submission {
+  id            String             @id @default(cuid())
+  userId        String
+  category      SubmissionCategory
+  title         String
+  description   String
+  link          String
+  status        SubmissionStatus   @default(PENDING)
+  pointsAwarded Int                @default(0)
+  adminNote     String?
+  createdAt     DateTime           @default(now())
+  reviewedAt    DateTime?
+  user          User               @relation(fields: [userId], references: [id])
+  likes         Like[]
+}
+
+model Like {
+  id           String     @id @default(cuid())
+  userId       String
+  submissionId String
+  createdAt    DateTime   @default(now())
+  user         User       @relation(fields: [userId], references: [id])
+  submission   Submission @relation(fields: [submissionId], references: [id])
+
+  @@unique([userId, submissionId])
+}
+
+model LinkedAccount {
+  id          String   @id @default(cuid())
+  userId      String
+  provider         Provider
+  providerId       String
+  providerUsername String?
+  createdAt        DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, provider])
+}
+
+enum QuestCategory {
+  ONCHAIN
+  GITHUB
+  SOCIAL
+  COMMUNITY
+}
+
+enum VerificationType {
+  MIDEN_TX
+  GITHUB_STAR
+  GITHUB_PR
+  TWITTER_FOLLOW
+  TWITTER_RETWEET
+  TELEGRAM_JOIN
+}
+
+enum CompletionStatus {
+  PENDING
+  VERIFIED
+  FAILED
+}
+
+enum SubmissionCategory {
+  TWEET
+  DAPP
+  ARTICLE
+  VIDEO
+}
+
+enum SubmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Provider {
+  GITHUB
+  TWITTER
+  TELEGRAM
+}
