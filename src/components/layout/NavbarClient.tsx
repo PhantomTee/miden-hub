@@ -27,9 +27,9 @@ export function NavbarClient({ walletAddress, isAdmin }: NavbarClientProps) {
   ]
 
   return (
-    <>
+    <div className="flex flex-1 items-center justify-between">
       {/* Desktop nav links */}
-      <nav className="hidden md:flex items-center gap-2 flex-1">
+      <nav className="hidden md:flex items-center gap-2">
         {links.map((link) => (
           <Link key={link.href} href={link.href} className="nav-pill text-[var(--muted-foreground)]">
             {link.label}
@@ -47,8 +47,8 @@ export function NavbarClient({ walletAddress, isAdmin }: NavbarClientProps) {
         )}
       </nav>
 
-      {/* Right side controls */}
-      <div className="flex items-center gap-1 shrink-0">
+      {/* Right side controls — always pushed to the right edge */}
+      <div className="flex items-center gap-1 ml-auto">
         <ThemeToggle />
         <div className="hidden sm:block">
           <WalletButton walletAddress={walletAddress} />
@@ -94,6 +94,6 @@ export function NavbarClient({ walletAddress, isAdmin }: NavbarClientProps) {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
