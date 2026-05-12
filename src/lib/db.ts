@@ -4,7 +4,7 @@ import { PrismaPg } from "@prisma/adapter-pg"
 function createPrismaClient(): PrismaClient {
   const url = process.env.DATABASE_URL
   if (!url) {
-    console.error("[db] DATABASE_URL is not set — queries will fail")
+    console.error("[db] DATABASE_URL is not set - queries will fail")
   }
 
   const adapter = new PrismaPg({

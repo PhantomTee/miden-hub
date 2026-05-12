@@ -48,13 +48,13 @@ export function NavbarClient({ walletAddress, isAdmin }: NavbarClientProps) {
         )}
       </nav>
 
-      {/* Right side controls — always pushed to the right edge */}
+      {/* Right side controls - always pushed to the right edge */}
       <div className="flex items-center gap-1 ml-auto">
         <ThemeToggle />
         <div className="hidden sm:block">
           <WalletButton walletAddress={walletAddress} />
         </div>
-        {/* Hamburger — mobile only */}
+        {/* Hamburger - mobile only */}
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"

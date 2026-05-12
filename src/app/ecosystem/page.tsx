@@ -4,7 +4,7 @@ const PROJECTS: EcosystemProject[] = [
   {
     name: "Miden Wallet",
     category: "Wallet",
-    summary: "The official Miden Web Wallet — a browser-based wallet for managing Miden accounts, sending notes, and interacting with the Miden testnet.",
+    summary: "The official Miden Web Wallet, a browser-based wallet for managing Miden accounts, sending notes, and interacting with the Miden testnet.",
     tags: ["Wallet", "Official", "Browser"],
     status: "Testnet",
     xUrl: "https://x.com/0xPolygonMiden",
@@ -111,7 +111,7 @@ const STATS = [
 
 export const metadata = {
   title: "Ecosystem | Miden Hub",
-  description: "Explore projects building on the Miden network — wallets, DeFi protocols, developer tooling, and more.",
+  description: "Explore projects building on the Miden network: wallets, DeFi protocols, developer tooling, and more.",
 }
 
 export default function EcosystemPage() {
@@ -126,7 +126,7 @@ export default function EcosystemPage() {
           Building on Miden
         </h1>
         <p className="text-[var(--muted-foreground)] text-base max-w-2xl leading-relaxed mb-8">
-          Discover the projects, protocols, and tools being built on the Miden network —
+          Discover the projects, protocols, and tools being built on the Miden network:
           from private DeFi and stealth payments to developer tooling and infrastructure.
         </p>
 
