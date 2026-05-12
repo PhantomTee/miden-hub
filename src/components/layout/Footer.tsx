@@ -54,10 +54,12 @@ export function Footer() {
             </a>
           </div>
         </div>
-      <div className="border-t border-[var(--border)] py-4 px-4 sm:px-8 lg:px-12">
-        <p className="text-[10px] text-[var(--muted-foreground)] text-center">
-          Miden Hub is an independent community-built directory and is not affiliated with or endorsed by the Miden team.
-        </p>
+
+        <div className="border-t border-[var(--border)] py-4">
+          <p className="text-[10px] text-[var(--muted-foreground)] text-center">
+            Miden Hub is an independent community-built directory and is not affiliated with or endorsed by the Miden team.
+          </p>
+        </div>
       </div>
     </footer>
   )
