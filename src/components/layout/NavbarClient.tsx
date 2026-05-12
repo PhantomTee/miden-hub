@@ -16,6 +16,7 @@ export function NavbarClient({ walletAddress, isAdmin }: NavbarClientProps) {
 
   const links = [
     { href: "/quests", label: "Quests" },
+    { href: "/ecosystem", label: "Ecosystem" },
     { href: "/feed", label: "Feed" },
     { href: "/leaderboard", label: "Leaderboard" },
     ...(walletAddress
