@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const anton = Anton({ variable: "--font-anton", subsets: ["latin"], weight: "400" })
 
 export const metadata: Metadata = {
-  title: "Miden Hub: Contribute & Earn",
-  description: "The contribution hub for the Miden ecosystem. Complete quests, earn points, and shape the future of ZK.",
+  title: "Miden Hub",
+  description: "An independent community directory for projects, builders, and activity in the Miden ecosystem.",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

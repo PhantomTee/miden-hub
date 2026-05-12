@@ -65,10 +65,10 @@ export default async function HomePage() {
             className="font-display uppercase leading-[0.9] tracking-tight mb-0"
             style={{ fontSize: "clamp(3.5rem, 11vw, 13rem)" }}
           >
-            <span className="block">Contribute</span>
-            <span className="block text-[var(--brand)]">to Miden.</span>
-            <span className="block">Earn Your</span>
-            <span className="block">Place.</span>
+            <span className="block">Explore</span>
+            <span className="block text-[var(--brand)]">Miden.</span>
+            <span className="block">Build.</span>
+            <span className="block">Connect.</span>
           </h1>
         </div>
 
@@ -76,7 +76,7 @@ export default async function HomePage() {
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8 mt-10">
           <div className="max-w-sm">
             <p className="text-[var(--muted-foreground)] text-sm leading-relaxed mb-6">
-              Complete on-chain actions, contribute to GitHub, grow the community, and earn points that prove your commitment to the Miden ecosystem.
+              An independent community hub for finding projects, builders, and activity across the Miden ecosystem.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/quests">
@@ -232,16 +232,16 @@ export default async function HomePage() {
             className="font-display uppercase leading-none text-4xl sm:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-anton, impact)" }}
           >
-            Ready to<br />
-            <span className="text-[var(--brand)]">Contribute?</span>
+            Building on<br />
+            <span className="text-[var(--brand)]">Miden?</span>
           </h2>
           <div className="flex flex-col gap-4">
             <p className="text-[var(--muted-foreground)] text-sm max-w-xs leading-relaxed">
-              Connect your Miden wallet and start earning points for building the future of ZK.
+              Browse the ecosystem directory, discover projects, and connect with other builders.
             </p>
-            <Link href="/quests">
+            <Link href="/ecosystem">
               <Button size="lg" className="uppercase tracking-wider font-bold text-sm w-full sm:w-auto">
-                Start Contributing
+                Explore Ecosystem
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
